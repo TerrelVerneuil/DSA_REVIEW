@@ -30,15 +30,15 @@ class BST:
         return root
     
     def insert_root(self, value):
-        def insert(self, root, value): # trying out nested functions :)
-            if root is None:
-                return Node(value)
-            if value < root.value:
-                root.left = self.insert(root.left, value)
-            else:
-                root.right = self.insert(root.right, value)
-            self.dl.append(value)
-            return root
+        # def insert(self, root, value): # trying out nested functions :)
+        #     if root is None:
+        #         return Node(value)
+        #     if value < root.value:
+        #         root.left = self.insert(root.left, value)
+        #     else:
+        #         root.right = self.insert(root.right, value)
+        #     self.dl.append(value)
+        #     return root
         if not self.root:
             self.root = Node(value)
         else:
@@ -63,6 +63,17 @@ class BST:
         if value < root.value:
             return self.contains(root.left, value)
         return self.contains(root.right, value)
+    def delete(self, root, value):
+        if root is None:
+            return Node(value)
+        
+        
+        if value < root.value:
+            root.left = self.insert(root.left, value)
+        else:
+            root.right = self.insert(root.right, value)
+        self.dl.delete(value)
+        
     def print(self, root):
         if root is None:
             return
@@ -74,6 +85,7 @@ bst.insert_root(5)
 bst.insert_root(3)
 bst.insert_root(7)
 bst.insert_root(2)
+bst.delete(bst.root, 3)
 
 print("BST Inorder Traversal:")
 bst.print(bst.root)
