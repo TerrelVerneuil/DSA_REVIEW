@@ -14,8 +14,9 @@ class B_Tree:
         self.root = None
         sorted_root = root.keys.sort()
         self.dl = Doubly_LinkedList()
-        max_root = self.root.keys[len(self.root.keys) - 1]
+        max_root = self.root.keys[len(self.root.keys) - 1] # the largest within root node 
         min_root = self.root.keys[0]
+        
         
     def insert(self, root, value, max_keys, max_children):
         if root is None:
